@@ -1,7 +1,7 @@
 const {assert} = require ("chai");
 const functionMultiplication = require("../function-multiplication");
 
-describe('Quantos parametros forem necessarios', function(){
+describe('Teste da função multiplicação:', function(){
     describe('1° teste: Somente um parametro', function(){
         it('Recebendo somente um parametro', async function(){
             const retornaResultadoUmParametro = await functionMultiplication(2);
@@ -32,10 +32,16 @@ describe('Quantos parametros forem necessarios', function(){
             assert.equal(retornarResultadoDoisNumerosNegativosParametros , 4);
         })
     })
-    describe('6° teste: Numero positivo com Negativo parametro', function (){
-        it('Recebendo um numero positivo com numero negativo', async function(){
+    describe('6° teste: Dois parametros (um negativo e um positivo)', function (){
+        it('Recebendo dois parametro com sinais opostos', async function(){
             const retornarResultadoPositivoComNegativoParametros = await functionMultiplication(-2, 1);
             assert.equal(retornarResultadoPositivoComNegativoParametros , -2);
+        })
+    }),
+    describe('7° teste: Dois parametros com valores flutuantes', function () {
+        it('Recebendo dois parametros flutuantes', async function () {
+            const retornarResultadoDoisParametrosFlutuantes = await functionMultiplication(3.0, 2.0);
+            assert.equal(retornarResultadoDoisParametrosFlutuantes, 6.0);
         })
     })
 })
